@@ -10,6 +10,7 @@ const Card = ({movie, showLink = true}) =>{
         <div className="movie-card">
             <img src={UrlIMG + movie.poster_path} alt={movie.title}/>
             <h2>{movie.title}</h2>
+            <p>{movie.release_date}</p>
             <p>
             <FaStar /> {movie.vote_average.toFixed(1)}
             </p>
