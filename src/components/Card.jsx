@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import { format } from "date-fns"
 
 import { Link } from "react-router-dom";
@@ -6,6 +7,7 @@ import { FaStar } from "react-icons/fa";
 
 
 const UrlIMG = import.meta.env.VITE_IMG;
+
 
 const Card = ({movie, showLink = true}) =>{
     return(

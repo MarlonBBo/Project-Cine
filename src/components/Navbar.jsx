@@ -23,7 +23,7 @@ const Navbar = () =>{
 
     return (
     <nav id="navbar">
-        <h2>
+        <h2 className="text-xl font-bold text-blue-500">
           <Link to="/">
           <MdMovieFilter /> 0NzMovies
           </Link>
