@@ -5,7 +5,7 @@ import Card from "../components/Card"
 const searchURl = import.meta.env.VITE_SEARCH
 const apiKEY = import.meta.env.VITE_API_KEY
 
-import "./MoviesGrid.css"
+
 
 const Search = () => {
 
@@ -31,9 +31,9 @@ const Search = () => {
 
 
     return (
-        <div className="container">
-            <h2 className="title">Resultados para: <span className="query-text">{query}</span></h2>
-            <div className="movies-container">
+        <div className="">
+            <h2 className="">Resultados para: <span className="">{query}</span></h2>
+            <div className="">
                 {movies.length === 0 && <p>Carregando...</p>}
                 {movies.length > 0 && movies.map((movie)=><Card key={movie.id} movie={movie}/>)} 
             </div>

@@ -12,7 +12,7 @@ import {
     const MovieURL = import.meta.env.VITE_API
     const apiKEY = import.meta.env.VITE_API_KEY
 
- import './Movie.css'
+
 
 const Movie = () => {
 
@@ -38,7 +38,7 @@ const Movie = () => {
         const movieURL = `${MovieURL}${id}?${apiKEY}`
         getMovie(movieURL)
 
-    }, [])
+    },[id])
      
     return <div className="movie-page">
         {movie && <>

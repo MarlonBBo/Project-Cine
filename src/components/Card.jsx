@@ -11,7 +11,7 @@ const UrlIMG = import.meta.env.VITE_IMG;
 
 const Card = ({movie, showLink = true}) =>{
     return(
-        <div className="movie-card">
+        <div className="p-2 bg-white gap-11 rounded">
             <img src={UrlIMG + movie.poster_path} alt={movie.title}/>
             <h2>{movie.title}</h2>
             <p className="format">{format(movie.release_date, "dd/MM/yyyy")}</p>

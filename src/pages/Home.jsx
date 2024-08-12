@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react"
 import Card from "../components/Card"
 
-import './MoviesGrid.css';
+
 
 const MovieURL = import.meta.env.VITE_API
 const apiKEY = import.meta.env.VITE_API_KEY
@@ -24,9 +24,10 @@ const Home = () => {
         getTopRatedMovies(TopRatedUrl)
     }, [])
     return (
-    <div className="container">
-        <h2 className="title">Melhores Filmes</h2>
-        <div className="movies-container">
+        
+    <div className="">
+        <h2 className="mt-7 text-white text-4xl text-center">Melhores Filmes</h2>
+        <div className="grid grid-cols-3 gap-4 sm:grid-cols-5">
             {TopMovies.length === 0 && <p>Carregando...</p>}
             {TopMovies.length > 0 && TopMovies.map((movie)=><Card key={movie.id} movie={movie}/>)} 
         </div>
