@@ -22,10 +22,10 @@ const Navbar = () =>{
 
 
     return (
-    <nav id="navbar" className=" m-5 mt-7 gap-5 flex flex-col justify-between sm:flex-row ">
-        <h2 className="text-2xl text-red-600 font-bold">
-          <Link to="/" className=" flex flex-row items-center gap-3">
-          <MdMovieFilter />Cine<span className="bg-red-600 rounded-xl px-2 items-center text-white">Tube</span>
+    <nav id="navbar" className=" m-16 flex flex-col gap-5 justify-between sm:flex-row ">
+        <h2 className="text-3xl text-red-700 font-mono">
+          <Link to="/" className=" flex flex-row items-center gap-3 font-mono">
+          <MdMovieFilter />0Nz<span className="bg-red-800 rounded-xl px-2 items-center text-white">Tube</span>
           </Link>
         </h2>
 
@@ -38,7 +38,7 @@ const Navbar = () =>{
             value={Search}
           />
 
-          <button type="submit" className="bg-red-600 text-2xl text-slate-900 rounded-xl p-2 hover:ring-red-500 hover:ring-1 ">
+          <button type="submit" className="bg-red-800 text-2xl text-slate-900 rounded-xl p-2 hover:ring-red-500 hover:ring-1 ">
             <BiSearchAlt2 />
           </button>
 

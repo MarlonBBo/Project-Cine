@@ -40,11 +40,11 @@ const Movie = () => {
 
     },[id])
      
-    return <div className="movie-page">
+    return <div className="text-white">
         {movie && <>
         <Card movie={movie} showLink={false}/>
-        <p className="tagline">{movie.tagline}</p>
-        <div className="info">
+        <p className="">{movie.tagline}</p>
+        <div className="">
             <h3>
                 <BsWallet2 /> Orçamento:
             </h3>
