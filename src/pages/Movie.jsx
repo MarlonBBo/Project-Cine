@@ -40,35 +40,40 @@ const Movie = () => {
 
     },[id])
      
-    return <div className="text-white">
+    return <section className=" ">
+    <div className="  text-white border rounded-xl p-5 flex flex-col lg:flex-row m-10 gap-5 bg-slate-900 border-slate-400">
         {movie && <>
         <Card movie={movie} showLink={false}/>
+
+        <section className="p-10 flex flex-col gap-5 border rounded-xl bg-slate-950  border-slate-400 font-mono">
         <p className="">{movie.tagline}</p>
         <div className="">
-            <h3>
-                <BsWallet2 /> Orçamento:
+            <h3 className="flex flex-row items-center gap-2">
+               <span className="text-slate-500"><BsWallet2 /></span>  Orçamento:
             </h3>
             <p>{formatCurrency(movie.budget)}</p>
         </div>
-        <div className="info">
-            <h3>
-                <BsGraphUp /> Receita:
+        <div className="">
+            <h3 className="flex flex-row items-center gap-2">
+            <span className="text-slate-500"> <BsGraphUp /></span> Receita:
             </h3>
             <p>{formatCurrency(movie.revenue)}</p>
         </div>
         <div className="info">
-            <h3>
-                <BsHourglassSplit /> Duração:
+            <h3 className="flex flex-row items-center gap-2">
+            <span className="text-slate-500"> <BsHourglassSplit /></span> Duração:
             </h3>
             <p>{movie.runtime} minutos</p>
         </div>
         <div className="info description">
-            <h3>
-                <BsFillFileEarmarkTextFill /> Descrição:
+            <h3 className="flex flex-row items-center gap-2">
+            <span className="text-slate-500"> <BsFillFileEarmarkTextFill /></span> Descrição:
             </h3>
             <p>{movie.overview}</p>
         </div>
+        </section>
         </>}
         </div>
+        </section>
 }
 export default Movie

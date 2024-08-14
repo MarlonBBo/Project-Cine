@@ -27,7 +27,7 @@ const Home = () => {
         
     <div className="">
         <h2 className=" text-white text-4xl text-center mt-16 mb-16  bg-slate-800 p-10 font-mono">Melhores Filmes</h2>
-        <div className="grid grid-cols-2 gap-10 sm:grid-cols-5 m-10">
+        <div className="grid grid-cols-2 gap-10 sm:grid-cols-4 md:grid-cols-5 m-10 ">
             {TopMovies.length === 0 && <p>Carregando...</p>}
             {TopMovies.length > 0 && TopMovies.map((movie)=><Card key={movie.id} movie={movie}/>)} 
         </div>
