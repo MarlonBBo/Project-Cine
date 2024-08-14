@@ -31,14 +31,17 @@ const Search = () => {
 
 
     return (
+        <section>
+        <h2 className=" text-white text-4xl text-center mt-16 mb-16  bg-slate-800 p-10 font-mono">Resultados para: <span className="text-red-600">{query}</span></h2>
         <div className="">
-            <h2 className="">Resultados para: <span className="">{query}</span></h2>
-            <div className="">
+            
+            <div className="grid grid-cols-6 gap-10 m-10">
                 {movies.length === 0 && <p>Carregando...</p>}
                 {movies.length > 0 && movies.map((movie)=><Card key={movie.id} movie={movie}/>)} 
             </div>
     
          </div>
+         </section>
         )
 }
 export default Search

@@ -45,7 +45,7 @@ const Movie = () => {
         {movie && <>
         <Card movie={movie} showLink={false}/>
 
-        <section className="p-10 flex flex-col gap-5 border rounded-xl bg-slate-950  border-slate-400 font-mono">
+        <section className="p-10  flex flex-col gap-5 border rounded-xl bg-slate-950  border-slate-400 font-mono">
         <p className="">{movie.tagline}</p>
         <div className="">
             <h3 className="flex flex-row items-center gap-2">
