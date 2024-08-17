@@ -22,7 +22,7 @@ const Navbar = () =>{
 
 
     return (
-    <nav id="navbar" className=" m-16 flex flex-col gap-5 justify-between sm:flex-row">
+    <nav id="navbar" className=" m-16 flex flex-col gap-5 justify-between sm:flex-row border-b-2 border-slate-500 pb-6 px-6 rounded-lg">
         <h2 className="text-3xl text-white font-mono">
           <Link to="/" className=" flex flex-row items-center gap-3 font-mono bg-slate-800 p-2 rounded-xl hover:ring-slate-500 hover:ring-1">
           <MdMovieFilter />0Nz<span className="bg-slate-500 rounded-xl px-2 items-center text-white ">Movies</span>
