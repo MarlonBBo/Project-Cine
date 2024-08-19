@@ -2,7 +2,7 @@ import { Body, Controller, HttpCode, HttpStatus, Inject, Post } from '@nestjs/co
 import { AuthService } from './auth.service';
 import { Prisma } from '@prisma/client';
 
-@Controller('login')
+@Controller('signin')
 export class AuthController {
     @Inject()
     private readonly authService: AuthService;

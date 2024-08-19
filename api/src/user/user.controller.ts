@@ -2,12 +2,12 @@ import { Body, Controller, Delete, Get, Inject, Param, Post, Put } from '@nestjs
 import { UserService } from './user.service';
 import { Prisma, User as UserModel } from '@prisma/client';
 
-@Controller('user')
+@Controller('signup')
 export class UserController {
     @Inject()
     private readonly userService: UserService;
         
-  @Post('signup')
+  @Post()
   async signupUser(
     @Body() userData:Prisma.UserCreateInput,
   ): Promise<UserModel> {

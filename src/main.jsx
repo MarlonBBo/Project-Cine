@@ -5,9 +5,13 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import Home from './pages/Home'
 import Movie from './pages/Movie'
 import Search from './pages/Search'
+import Signup from './pages/Signup'
+import Signin from './pages/Signin'
 import App from './App'
 
 import './index.css'
+
+
 
 
 ReactDOM.createRoot(document.getElementById('root')).render(
@@ -18,6 +22,8 @@ ReactDOM.createRoot(document.getElementById('root')).render(
           <Route path="/" element={<Home/>}/>
           <Route path='movie/:id' element={<Movie/>}/>
           <Route path='search' element={<Search/>}/>
+          <Route path='signup' element={<Signup/>}/>
+          <Route path='signin' element={<Signin/>}/>
         </Route>
       </Routes>
     </BrowserRouter>
