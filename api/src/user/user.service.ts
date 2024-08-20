@@ -1,4 +1,4 @@
-import { Inject, Injectable } from '@nestjs/common';
+import { Inject, Injectable, UnauthorizedException } from '@nestjs/common';
 import { Prisma, User } from '@prisma/client';
 import { PrismaService } from 'src/database/prisma.service';
 import * as bcrypt from 'bcrypt';
@@ -12,9 +12,11 @@ export class UserService {
     private readonly prisma: PrismaService;
 
 
-    async createUser(data: Prisma.UserCreateInput): Promise<User> {
+    async createUser(data: Prisma.UserCreateInput):Promise<User>{
+      if(data.password.length < 6)throw new UnauthorizedException('senha muito curta')
+
       const hashpassword = await bcrypt.hash(data.password, 10);
-        return this.prisma.user.create({
+       return this.prisma.user.create({
           data: {...data, password: hashpassword}
         });
       }
