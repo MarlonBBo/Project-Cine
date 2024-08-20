@@ -13,8 +13,6 @@ export class UserService {
 
 
     async createUser(data: Prisma.UserCreateInput):Promise<User>{
-      if(data.password.length < 6)throw new UnauthorizedException('senha muito curta')
-
       const hashpassword = await bcrypt.hash(data.password, 10);
        return this.prisma.user.create({
           data: {...data, password: hashpassword}

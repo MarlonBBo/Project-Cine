@@ -11,6 +11,9 @@ export class UserController {
   async signupUser(
     @Body() userData:Prisma.UserCreateInput,
   ): Promise<UserModel> {
+    if(userData.password.length < 6){
+      throw new Error('senha muito curta')
+    }
     return this.userService.createUser(userData);
   }
 

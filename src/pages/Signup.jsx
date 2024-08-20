@@ -28,19 +28,16 @@ const Signup = () => {
             const response = await fetch('http://localhost:3000/signup', {
               method: 'POST',
               headers: { 
-                'Content-Type': 'application/json' // Outros cabeçalhos, se necessário
+                'Content-Type': 'application/json' 
               },
-              body: JSON.stringify(formData) // Converte os dados do formulário para JSON
+              body: JSON.stringify(formData) 
             });
 
-            if(!response.ok){
-                throw new Error('Erro na requisição: ' + response.statusText);
-            }
-            const result = await response.json();
-            setStatus('Postagem bem-sucedida!');
-            console.log('Dados retornados:', result)
-            navigate('/')
-            ;
+            if (!response.ok) {
+                throw new Error('Senha muito curta');
+              }
+            setStatus('criação de usuãrio bem-sucedida!');
+            navigate('/');
     }
         catch (error) {
             setStatus('Falha na postagem.');
