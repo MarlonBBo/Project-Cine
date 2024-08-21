@@ -1,68 +1,52 @@
-import { useState } from "react";
+
+
 import { useNavigate } from "react-router-dom";
+import { useAuth } from "../components/AuthProvider/useAuth";
+
 
 
 const Signin = () => {
 
+    const auth = useAuth()
     const navigate = useNavigate()
-    const [email, setEmail] = useState('');
-    const [password, setPassword] = useState('');
 
-    const handleSubmit = async (e) => {
-        e.preventDefault();
-        
+   async function onFinish(){
         try{
-            const response = await fetch('http://localhost:3000/signin', {
-            method: 'POST',
-            headers: { 
-                'Content-Type': 'application/json' 
-              },
-              body: JSON.stringify({email, password}) 
-            });
-        
-            const token = response
 
-            if(!response.ok){
-                throw new Error('Credenciais inválidas')
-            }else{
-                
-                localStorage.setItem('token', token);
-                console.log(await response.json()) 
-                navigate('/');
-            }
-            
-    }
-        catch (error) {
-            console.error('Erro:', error);
+            auth.authenticate()
+
+            navigate('/')
+        }catch(error){
+            console.log(error)
         }
-}
+   }
+    
 
 return (
-    <form onSubmit={handleSubmit}>
-        <div>
-            <label>Email:</label>
-            <input
-                type="email"
-                name='email'
-                value={email}
-                onChange={(e)=> setEmail(e.target.value)}
-                required
-            />
-        </div>
-        <div>
-            <label>Password:</label>
-            <input
-                type="password"
-                name='password'
-                value={password}
-                onChange={(e)=> setPassword(e.target.value)}
-                required
-            />
-        </div>
-        
-        <button type="submit">Adicionar Item</button>
-    </form>
-);
+    <form onSubmit={onFinish}>
+    <div>
+        <label>Email:</label>
+        <input
+            type="email"
+            name='email'
+            onChange={(e)=>(e.target.value)}
+            required
+        />
+    </div>
+    <div>
+        <label>Password:</label>
+        <input
+            type="password"
+            name='password'
+            onChange={(e)=>(e.target.value)}
+            required
+        />
+    </div>
+    
+    <button type="submit">Adicionar Item</button>
+</form>
+)
+    
 }
 
 export default Signin

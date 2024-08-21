@@ -2,14 +2,27 @@ import { Link, useNavigate } from "react-router-dom"
 import { BiSearchAlt2 } from "react-icons/bi"
 import { MdMovieFilter } from "react-icons/md"
 import { useState } from "react"
+import { useAuth } from "./AuthProvider/useAuth"
+
 
 
 const Navbar = () =>{
 
+  const auth = useAuth()
+
+  async function Logout(){
+    try{
+
+        auth.logaut()
+
+        navigate('/')
+    }catch(error){
+        console.log(error)
+    }
+}
 
   const [Search, SetSearch] = useState("")
   const navigate = useNavigate()
-  
 
   const handleSubmit = (e) => {
     e.preventDefault()
@@ -21,13 +34,16 @@ const Navbar = () =>{
     SetSearch("")
   }
 
+  
+
 
     return (
       <div>
         <div>
           <h1 className="text-white">
-          {name}
+          {}
           </h1>
+          <button className="text-white" onClick={Logout}>Logout</button>
         </div>
     <nav id="navbar" className=" m-16 flex flex-col gap-5 justify-between sm:flex-row border-b-2 border-slate-500 pb-6 px-6 rounded-lg">
         <h2 className="text-3xl text-white font-mono">
