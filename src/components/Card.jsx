@@ -15,9 +15,9 @@ const Card = ({movie, showLink = true}) =>{
             <img src={UrlIMG + movie.poster_path} alt={movie.title}/>
             <h2>{movie.title}</h2>
             <p className="italic text-slate-400">{format(movie.release_date, "dd/MM/yyyy")}</p>
-            <p className="flex flex-row items-center gap-2 text-yellow-300">
+            <span className="flex flex-row items-center gap-2 text-yellow-300">
             <FaStar /> <p className="text-white">{movie.vote_average.toFixed(1)}</p>
-            </p>
+            </span>
            {showLink && <Link className="bg-slate-800 p-4 rounded " to={`/movie/${movie.id}`}>Detalhes</Link>}
         </div>
     )

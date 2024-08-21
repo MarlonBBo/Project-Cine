@@ -37,12 +37,13 @@ const Signup = () => {
                 throw new Error('Senha muito curta');
               }
             setStatus('criação de usuãrio bem-sucedida!');
-            navigate('/');
+            navigate('/signin');
     }
         catch (error) {
-            setStatus('Falha na postagem.');
+            setStatus('Falha ao criar usuário.');
             console.error('Erro:', error);
         }
+        console.log(status)
 }
 
     return (
@@ -79,7 +80,7 @@ const Signup = () => {
             </div>
             
             <button type="submit">Adicionar Item</button>
-            <p>Status: {status}</p>
+            
         </form>
     );
 };

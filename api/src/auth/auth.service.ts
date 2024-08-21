@@ -19,7 +19,7 @@ export class AuthService {
         const passwordMath = await bcrypt.compare(params.password, user.password);
         if(!passwordMath) throw new UnauthorizedException('Invalid credentials')
 
-            const payload = { sub: user.id };
+            const payload = { sub: user.id, user: user.name};
 
             return {
                 access_token: await this.jwtService.signAsync(payload),
