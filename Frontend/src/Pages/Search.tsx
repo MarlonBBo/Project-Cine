@@ -1,24 +1,24 @@
 import { useState, useEffect } from "react"
 import { useSearchParams } from "react-router-dom"
-import Card from "../components/Card"
+import { MovieCard } from "./MovieCard" 
+import { Movie } from "../Types/Movie"
+
 
 const searchURl = import.meta.env.VITE_SEARCH
 const apiKEY = import.meta.env.VITE_API_KEY
 
-
-
-const Search = () => {
+export const Search = () => {
 
     const [searchParams] = useSearchParams()
 
-    const [movies, SetMovies] = useState([])
+    const [movies, setMovies] = useState<Movie[]>([])
     const query = searchParams.get('q')
 
-    const getSearchedMovies = async (url) =>{
+    const getSearchedMovies = async (url: string) =>{
         const res = await fetch(url)
         const data = await res.json()
 
-        SetMovies(data.results)
+        setMovies(data.results)
     }
 
     useEffect(() => {
@@ -37,11 +37,10 @@ const Search = () => {
             
             <div className="grid grid-cols-2 gap-10 sm:grid-cols-4 lg:grid-cols-5 m-10">
                 {movies.length === 0 && <p>Carregando...</p>}
-                {movies.length > 0 && movies.map((movie)=><Card key={movie.id} movie={movie}/>)} 
+                {movies.length > 0 && movies.map((movie)=><MovieCard key={movie.id} movie={movie} showLink/>)} 
             </div>
     
          </div>
          </section>
         )
 }
-export default Search
