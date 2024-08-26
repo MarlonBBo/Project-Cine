@@ -4,7 +4,7 @@ import { FormEvent, useEffect, useState } from "react"
 import { BiSearchAlt2 } from "react-icons/bi"
 import { MdMovieFilter } from "react-icons/md"
 import { useAuth } from "../AuthProvider/useAuth"
-import Cookies from "js-cookie";
+import Cookies from "js-cookie"
 
 export interface Item {
   name: string
