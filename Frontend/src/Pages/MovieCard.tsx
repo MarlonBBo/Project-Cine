@@ -1,9 +1,8 @@
 
-
-
-import { Props } from "../../../../ReactTs/Frontend/src/Types/Movie"
 import { StarRating } from "../components/StarRating" 
 import { Link } from "react-router-dom" 
+import { Props } from "../Types/Movie"
+import { format } from 'date-fns';
 
 export const MovieCard = (props:Props)=> {
     const movie = props.movie
@@ -12,7 +11,7 @@ export const MovieCard = (props:Props)=> {
         <div className=" flex flex-col items-center gap-3 p-2 bg-slate-700 rounded text-white font-mono">
             <img src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`} alt={movie.title}/>
             <h2>{movie.title}</h2>
-            <p className="italic text-slate-400">{movie.release_date}</p>
+            <p className="text-sm italic text-slate-400">{format(movie.release_date, "dd/MM/yyyy")}</p>
             <span className="flex flex-row items-center gap-2 text-yellow-300">
             <StarRating rating={movie.vote_average}/>
             </span>

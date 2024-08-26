@@ -10,8 +10,8 @@ export interface Item {
   name: string
 }
 
-
 export const Navbar = ()=>{
+
 
     const auth = useAuth();
     const navigate = useNavigate()
@@ -20,12 +20,13 @@ export const Navbar = ()=>{
         auth.logout();
         Cookies.remove('u')
         navigate('/signin')
+        window.location.reload();
       };
 
   const [search, setSearch] = useState<string>("")
   const [item, setItem] = useState<Item | null>(null);
 
-  const handleSubmit = (e: FormEvent) => {
+  const handleSubmit = (e: FormEvent) => {  
     e.preventDefault()
     console.log(search)
 
@@ -35,32 +36,47 @@ export const Navbar = ()=>{
     setSearch("")
   }
 
-  useEffect(()=>{
-    const getName = Cookies.get('u');
-  if (getName) {
-    try {
-      const parsedItem = JSON.parse(getName);
-      if (parsedItem && typeof parsedItem === 'object' && 'name' in parsedItem) {
-        setItem(parsedItem);
+  function GetUser(){
+    try{
+      const getName = Cookies.get('u');
+      if(typeof getName === 'string'){
+        const user: Item = JSON.parse(getName)
+        setItem(user)
       }
-    } catch (error) {
-      console.error('erro ao pegar item no localStorage:', error);
+
+    }catch(error){
+      console.log(error)
     }
+    
   }
+
+  useEffect(()=>{
+ if(Cookies.get('u')){
+  GetUser()
+ }
   },[])
-
-
 
   return (
     <div>
-      <div className="flex flex-row justify-end gap-5 h-20">
-      {item && <h1>{item.name}</h1>}
-        <button className="text-white my-4 bg-slate-500 items-center justify-center px-5 rounded-md">
-          Signin
-        </button>
-        <button className="text-white my-4 bg-slate-500 items-center justify-center px-5 mr-4 rounded-md " onClick={logout}>
+      <div className="">
+        {item ? (
+          <div className="flex flex-row justify-end items-center gap-4 ">
+          <p className="  text-white text-xl">Bem-vindo(a) <span className="italic text-slate-400 text-xl underline">{item?.name}</span></p>
+          <button className="text-white my-4 bg-slate-500 items-center justify-center px-5 mr-4 rounded-md " onClick={logout}>
           Logout
         </button>
+          </div>
+        ) : 
+        (
+          <div className="flex flex-row justify-end items-center pr-4">
+            <Link to="/signin"><button className="text-white my-4 bg-slate-500 items-center justify-center px-5 rounded-md">
+          Entrar
+        </button></Link>
+          </div>
+          
+        )}
+        
+        
       </div>
       <nav id="navbar" className="m-16 mt-0 flex flex-col gap-5 justify-between sm:flex-row border-b-2 border-slate-500 pb-6 px-6 rounded-lg">
         <h2 className="text-3xl text-white font-mono">

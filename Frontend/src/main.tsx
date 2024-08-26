@@ -16,9 +16,9 @@ import { Signup } from './Pages/Signup.tsx'
 
 
 createRoot(document.getElementById('root')!).render(
+  <AuthProvider>
   <StrictMode>
     <BrowserRouter>
-    <AuthProvider>
       <Routes>
         <Route element={<App />}>
           <Route path="/" element={<Home/>}/>
@@ -28,7 +28,7 @@ createRoot(document.getElementById('root')!).render(
           <Route path='signup' element={<Signup/>}/>
         </Route>
       </Routes>
-      </AuthProvider>
     </BrowserRouter>
-  </StrictMode>,
+  </StrictMode>
+  </AuthProvider>
 )

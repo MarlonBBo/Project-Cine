@@ -32,7 +32,7 @@ export const Home = () => {
         <h2 className=" text-white text-4xl text-center mt-16 mb-16  bg-slate-800 p-10 font-mono">Melhores Filmes</h2>
         <div className="grid grid-cols-2 gap-10 sm:grid-cols-4 lg:grid-cols-5 m-10 ">
             {movie.map((movie)=><MovieCard key={movie.id} movie={movie} showLink/>)} 
-            <Link to={'/'}>Olá</Link>
+            <Link to={'/'} className="text-white">Carregando</Link>
         </div>
 
      </div>
