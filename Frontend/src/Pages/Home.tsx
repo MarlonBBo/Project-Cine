@@ -3,7 +3,6 @@ import { useEffect, useState } from "react"
 import { Movie } from "../Types/Movie"
 import axios from "axios"
 import { MovieCard } from "./MovieCard"
-import { Link } from "react-router-dom"
 
 
 export const Home = () => {
@@ -30,9 +29,8 @@ export const Home = () => {
      return(
        <div className="">
         <h2 className=" text-white text-4xl text-center mt-16 mb-16  bg-slate-800 p-10 font-mono">Melhores Filmes</h2>
-        <div className="grid grid-cols-2 gap-10 sm:grid-cols-4 lg:grid-cols-5 m-10 ">
+        <div className="grid grid-cols-2 gap-10 sm:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 m-10">
             {movie.map((movie)=><MovieCard key={movie.id} movie={movie} showLink/>)} 
-            <Link to={'/'} className="text-white">Carregando</Link>
         </div>
 
      </div>
