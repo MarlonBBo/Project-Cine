@@ -37,7 +37,7 @@ export const Signup: React.FC = () => {
   return (
     <div className="flex items-center justify-center min-h-96 bg-transparent m-10 rounded-md">
       <form onSubmit={handleSubmit} className="w-full max-w-md p-6 m-10 bg-slate-300 shadow-md rounded">
-        <h2 className="text-xl font-bold mb-4">Login</h2>
+        <h2 className="text-xl font-bold mb-4">Cadastro</h2>
         <label className="block mb-2">
           <span className="text-gray-700">Email</span>
           <input

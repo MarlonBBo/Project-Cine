@@ -63,7 +63,7 @@ export const Navbar = ()=>{
           <div className="flex flex-row justify-end items-center gap-4 ">
           <p className="  text-white text-xl">Bem-vindo(a) <span className="italic text-slate-400 text-xl underline">{item?.name}</span></p>
           <button className="text-white my-4 bg-slate-500 items-center justify-center px-5 mr-4 rounded-md " onClick={logout}>
-          Logout
+          Sair
         </button>
           </div>
         ) : 
