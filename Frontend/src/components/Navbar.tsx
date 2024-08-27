@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom" 
+import { FaHouse } from "react-icons/fa6";
 import { useNavigate } from "react-router-dom" 
 import { FormEvent, useEffect, useState } from "react"
 import { BiSearchAlt2 } from "react-icons/bi"
@@ -59,8 +60,10 @@ export const Navbar = ()=>{
   return (
     <div>
       <div className="">
+      
         {item ? (
           <div className="flex flex-row justify-end items-center gap-4 ">
+            <Link to={"/"}><div className="flex border  border-white rounded-2xl h-8 w-12 justify-center items-center text-slate-600"><i className="text-xl text-white"><FaHouse /></i></div></Link>
           <p className="  text-white text-xl">Bem-vindo(a) <span className="italic text-slate-400 text-xl underline">{item?.name}</span></p>
           <button className="text-white my-4 bg-slate-500 items-center justify-center px-5 mr-4 rounded-md " onClick={logout}>
           Sair
@@ -68,7 +71,8 @@ export const Navbar = ()=>{
           </div>
         ) : 
         (
-          <div className="flex flex-row justify-end items-center pr-4">
+          <div className="flex flex-row justify-end items-center pr-4 gap-4">
+            <Link to={"/"}><div className="flex border  border-white rounded-2xl h-8 w-12 justify-center items-center text-slate-600"><i className="text-xl text-white"><FaHouse /></i></div></Link>
             <Link to="/signin"><button className="text-white my-4 bg-slate-500 items-center justify-center px-5 rounded-md">
           Entrar
         </button></Link>

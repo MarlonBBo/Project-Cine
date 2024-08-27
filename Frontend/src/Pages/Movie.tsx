@@ -1,17 +1,15 @@
 
-    import { useParams } from "react-router-dom" 
+    import { useNavigate, useParams } from "react-router-dom" 
     import { 
         BsGraphUp,
         BsWallet2,
         BsHourglassSplit,
         BsFillFileEarmarkTextFill
      } from "react-icons/bs"
-    
+     import { FaArrowCircleLeft } from "react-icons/fa";
     import { MovieCard } from "./MovieCard" 
     import { Movie } from "../Types/Movie" 
-import { useEffect, useState } from "react"
-    
-
+    import { useEffect, useState } from "react"
     
         const MovieURL = 'https://api.themoviedb.org/3/movie/'
         const apiKEY = 'api_key=290dcc808fad0704c37da9dd21933416'
@@ -19,8 +17,9 @@ import { useEffect, useState } from "react"
     
     
         export default function DMovie () {
-    
+            
 
+        const navigate = useNavigate()    
         const { id } = useParams()
         const [movie, setMovie] = useState<Movie>()
     
@@ -37,6 +36,10 @@ import { useEffect, useState } from "react"
                 currency: "USD",
             })
         }
+
+        const handleBack = () => {
+            navigate(-1); // Volta uma página na pilha de histórico
+          };
     
         useEffect(()=> {
     
@@ -47,6 +50,7 @@ import { useEffect, useState } from "react"
          
         return <section className=" ">
         <div className="  text-white border rounded-xl p-5 flex flex-col lg:flex-row m-10 gap-5 bg-slate-900 border-slate-400">
+            <button onClick={handleBack} className="text-3xl"><FaArrowCircleLeft /></button>
             {movie && <> 
             <MovieCard movie={movie} />
     
