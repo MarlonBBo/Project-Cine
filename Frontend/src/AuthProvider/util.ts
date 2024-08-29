@@ -15,7 +15,7 @@ export function getUserLocalStorage (){
 
     const user = json
 
-    return user ?? null;
+    return user;
 }
 
 export async function LoginRequest (email: string, password: string) {

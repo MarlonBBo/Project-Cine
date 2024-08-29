@@ -1,12 +1,13 @@
 import { createContext, useEffect, useState } from "react";
-import { IAuthProvider, IContext, IUser } from "./types";
+import { IAuthProvider, IContext} from "./types";
 import { getUserLocalStorage, LoginRequest, RegisterRequest, setUserLocalStorage } from "./util";
 
 export const AuthContext = createContext<IContext>({} as IContext)
 
 
 export const AuthProvider = ({ children }: IAuthProvider) =>{
-    const [user, setUser] = useState<IUser | null>()
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    const [user, setUser] = useState<any>(null)
 
     useEffect(()=> {
         const user = getUserLocalStorage()
