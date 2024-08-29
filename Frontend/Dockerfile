@@ -1,25 +1,21 @@
 
-FROM node:18 AS builder
+FROM node:20.12.0-alpine AS builder
 
-WORKDIR /app
+WORKDIR /Frontend
 
 COPY package.json package-lock.json ./
-
 RUN npm install
 
-COPY . .
+COPY . ./
 
 RUN npm run build
 
-FROM node:18
+FROM nginx:alpine
 
-WORKDIR /app
+COPY --from=builder /Frontend/dist /usr/share/nginx/html
+COPY nginx.conf /etc/nginx/conf.d/default.conf
 
-COPY --from=builder /app/dist /app/dist
+EXPOSE 5173
 
-RUN npm install -g serve
 
-EXPOSE 5000
-
-CMD ["serve", "-s", "dist", "-l", "5000"]
 
