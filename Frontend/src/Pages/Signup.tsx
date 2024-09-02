@@ -22,7 +22,7 @@ export const Signup: React.FC = () => {
     });
   };
 
-  const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (event: FormEvent) => {
     event.preventDefault();
     const { email, password, name } = formData;
     try {
@@ -30,7 +30,7 @@ export const Signup: React.FC = () => {
       navigate('/');
       window.location.reload();
     } catch (error) {
-      console.error('Erro ao autenticar:', error);
+      console.error('Erro ao Registar:', error);
     }
   };
 

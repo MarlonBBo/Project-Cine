@@ -21,7 +21,7 @@ export const Signin: React.FC = () => {
     });
   };
 
-  const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (event: FormEvent) => {
     event.preventDefault();
     const { email, password } = formData;
     try {
