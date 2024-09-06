@@ -1,0 +1,45 @@
+version: '3.8'
+
+services:
+  postgres:
+    image: postgres:latest
+    container_name: postgres-container
+    environment:
+      POSTGRES_USER: usuario
+      POSTGRES_PASSWORD: senha
+      POSTGRES_DB: nome_do_banco
+    ports:
+      - "5432:5432"
+    networks:
+      - api_app-network
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+  api-nest:
+    build:
+      context: ./api
+      dockerfile: Dockerfile
+    container_name: api-nest
+    ports:
+      - "3000:3000"
+    networks:
+      - api_app-network
+    depends_on:
+      - postgres
+
+  front-cine:
+    build:
+      context: ./Frontend
+      dockerfile: Dockerfile
+    container_name: front-cine
+    ports:
+      - "80:80"
+    networks:
+      - api_app-network
+
+networks:
+  api_app-network:
+    driver: bridge
+
+volumes:
+  postgres_data:
