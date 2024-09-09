@@ -35,7 +35,7 @@ export const Search = () => {
         <h2 className=" text-white text-4xl text-center mt-16 mb-16  bg-slate-800 p-10 font-mono">Resultados para: <span className="text-red-600">{query}</span></h2>
         <div className="">
             
-            <div className="grid grid-cols-2 gap-10 sm:grid-cols-4 lg:grid-cols-5 m-10">
+            <div className="grid grid-cols-1 gap-5 sm:mx-20 lg:mx-36 xl:mx-52 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-4 2xl:mx-64 2xl:grid-cols-5 m-3">
                 {movies.length === 0 && <p>Carregando...</p>}
                 {movies.length > 0 && movies.map((movie)=><MovieCard key={movie.id} movie={movie} showLink/>)} 
             </div>
