@@ -28,7 +28,7 @@ export const Home = () => {
 
      return(
        <div className="">
-        <h2 className=" text-white text-4xl text-center mt-16 mb-16  bg-slate-800 p-10 font-mono">Melhores Filmes</h2>
+        <h2 className=" text-white text-4xl text-center mt-16 mb-16  bg-slate-800 p-10 font-mono">Filmes Recentes</h2>
         <div className="grid grid-cols-2 gap-5 lg:mx-36 xl:mx-52 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-4 2xl:mx-64 2xl:grid-cols-5 sm:m-3 ">
             {movie.map((movie)=><MovieCard key={movie.id} movie={movie} showLink/>)} 
         </div>
