@@ -8,7 +8,7 @@ import { MdOutlineContactPage } from "react-icons/md";
 export const Footer = () =>{
 
     return(
-        <div className="justify-center items-center border mt-16  rounded-md bg-slate-900 ">
+        <div className="justify-center items-center border mt-16  rounded-md bg-slate-900 m-5 ">
         <div className="flex flex-row border-l-2 h-1/2 m-5 sm:items-center sm:justify-center sm:border-none">
             <div className="flex flex-col sm:flex-row text-lg text-white m-8 sm:gap-2">
                 <a href=""><h3 className="flex flex-row items-center gap-1 sm:border-l pl-2">Contato <MdContacts /></h3></a>

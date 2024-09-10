@@ -71,9 +71,9 @@ export const Navbar = ()=>{
           </div>
         ) : 
         (
-          <div className="flex flex-row justify-end items-center pr-4 gap-4">
+          <div className="flex flex-row justify-end items-center pr-4 gap-4 mt-5">
             <Link to={"/"}><div className="flex border  border-white rounded-2xl h-8 w-12 justify-center items-center text-slate-600"><i className="text-xl text-white"><FaHouse /></i></div></Link>
-            <Link to="/signin"><button className="text-white my-4 bg-slate-500 items-center justify-center px-5 rounded-md">
+            <Link to="/signin"><button className="text-white w-32 h-8 sm:mr-20 my-4 bg-slate-500 items-center justify-center px-5 rounded-md">
           Entrar
         </button></Link>
           </div>
