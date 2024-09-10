@@ -36,7 +36,7 @@ export const Search = () => {
         <div className="">
             
             <div className="grid grid-cols-1 gap-5 sm:mx-20 lg:mx-36 xl:mx-52 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-4 2xl:mx-64 2xl:grid-cols-5 m-3">
-                {movies.length === 0 && <p>Carregando...</p>}
+                {movies.length === 0 && <p className="text-3xl text-center text-white">sem resultados</p>}
                 {movies.length > 0 && movies.map((movie)=><MovieCard key={movie.id} movie={movie} showLink/>)} 
             </div>
     
