@@ -13,7 +13,7 @@ export const Footer = () =>{
             <div className="flex flex-col sm:flex-row text-lg text-white m-8 sm:gap-2">
                 <a href=""><h3 className="flex flex-row items-center gap-1 sm:border-l pl-2">Contato <MdContacts /></h3></a>
                 <a href="https://github.com/MarlonBBo"><h3 className="flex flex-row items-center gap-1 sm:border-l pl-2">Github <FaGithub /></h3></a>
-                <a href="https://www.linkedin.com/in/marlon-barreto-borges-2a08712a3/"><h3 className="flex flex-row items-center gap-1 sm:border-l pl-2">Linkedin <FaLinkedin /></h3></a>
+                <a href="https://www.linkedin.com/in/marlonbborges1606/"><h3 className="flex flex-row items-center gap-1 sm:border-l pl-2">Linkedin <FaLinkedin /></h3></a>
                 <a href=""><h3 className="flex flex-row items-center gap-1 sm:border-l pl-2">Email <MdOutlineAttachEmail /></h3></a>
                 <a href=""><h3 className="flex flex-row items-center gap-1 sm:border-l pl-2">Portfolio <MdOutlineContactPage /></h3></a>
                 </div>
